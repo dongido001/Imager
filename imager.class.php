@@ -1,5 +1,11 @@
 <?php
 
+/**
+* @author : Onwuka Gideon <dongidomed@gmail.com>  <dongido> <pythonBoss>
+* The root of the app,
+* Imager - a mini project(2hr) for getting images from a particlar website
+*/
+
 require_once("html.php");
 
 class Imager extends simple_html_dom_node{
@@ -60,18 +66,6 @@ class Imager extends simple_html_dom_node{
       return $next_dir;
 	}
 
-
-   /**
-   *
-   * gets the link html file -
-   * @param: String - url.
-   * @return: String - content of the wbpage
-   */
-
-	public static function fetchHtml($url)
-   {
-     
-	}
 
    /**
    *
