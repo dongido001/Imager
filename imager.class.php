@@ -6,7 +6,6 @@
 * Imager - a mini project(2hr) for getting images from a particlar website
 */
 
-require_once("html.php");
 
 class Imager extends simple_html_dom_node{
 
