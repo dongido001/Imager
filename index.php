@@ -1,9 +1,9 @@
 <?php
 
 /**
-* @author : Onwuka Gideon <dongidomed@gmail.com>  <dongido> <pythonBoss>
+* @author : Onwuka Gideon <dongidomed@gmail.com>  <dongido>
 * The root of the app,
-* Imager - a mini project(2hr) for getting images from a particlar website
+* Imager -  gets images from a particlar website
 * into clean folders
 */
 

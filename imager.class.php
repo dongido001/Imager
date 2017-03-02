@@ -1,9 +1,9 @@
 <?php
 
 /**
-* @author : Onwuka Gideon <dongidomed@gmail.com>  <dongido> <pythonBoss>
-* The root of the app,
-* Imager - a mini project(2hr) for getting images from a particlar website
+* @author : Onwuka Gideon <dongidomed@gmail.com>  <dongido>
+* The helper class of the app,
+* Imager - Downloads images from a given url to your PC, places it in a well defined folder..
 */
 
 require_once("html.php");
@@ -12,16 +12,33 @@ class Imager extends simple_html_dom_node{
 
    /**
    *
-   *  Array of links ...
+   *  Array of links
    */
 
    private $links;
 
 
-  //construct__
+   /**
+   *
+   *  Array of config information
+   */
+
+   private $config;
+
+   /**
+   *
+   *  int - counts the number of image downloaded
+   */
+
+   private $imageCount;
+
+  //construct__ -- prepares the input.
    public function __construct(){
       
-      $this->links = self::getLinks();
+      $this->links  = self::getLinks();
+      $this->config = parse_ini_file('setup.ini');
+      $this->imageCount = 0;
+
    }
 
    /**
@@ -31,7 +48,7 @@ class Imager extends simple_html_dom_node{
    * @return: array - one dimentional array of links
    */
 
-	public function getLinks()
+	public static function getLinks()
    {
       $r = [];
       $urls = file_get_contents("links.txt");
@@ -45,7 +62,7 @@ class Imager extends simple_html_dom_node{
    *
    * Creates a folder if not exist
    * @param: String - folder name to create.
-   * @return: bool - true, if created, else false...
+   * @return: string - the folder created...
    */
 
 	public static function createFolder($folder)
@@ -71,15 +88,13 @@ class Imager extends simple_html_dom_node{
    * Downloads the images
    * @param 1: String - url - link to the image.
    * @param 2: String - folder to store the image.
-   * @return: String - content of the wbpage
+   * @return: string
    */
 
 	public static function getImages($url, $image_name, $folder)
    {
        $image = file_get_contents($url);
-       file_put_contents("{$folder}/{$image_name}", $image);
-
-       return true;
+       return file_put_contents("{$folder}/{$image_name}", $image);
 	}
 
    /**
@@ -104,22 +119,57 @@ class Imager extends simple_html_dom_node{
       return curl_exec($curl);
    }
 
+   public function getImagePregMatched( $dom , $link ){
+
+      foreach(@$dom->find('img') as $element){
+        if( preg_match('<'. $this->config['IMAGE_MATCH'] .'>', $element->src) AND $this->config['IMAGE_MATCH'] != "" AND $this->config['IMAGE_MATCH'] != NULL ){
+          $folder =  preg_replace('*'.$this->config['REPLACE'].'*i', "", $link);
+          $img_ex =  explode('/', $element->src); 
+          $res    =  self::getImages( $element->src, $img_ex[count($img_ex) - 1], self::createFolder($folder) );
+         
+          $this->imageCount += ( $res ) ? 1 : 0 ;
+
+          echo $element->src . " <br /> " . PHP_EOL;
+        }
+      }
+   }
+
+   public function getImageWithoutPregMatched( $dom , $link ){
+      foreach(@$dom->find('img') as $element){
+
+        $folder =  preg_replace('*'.$this->config['REPLACE'].'*i', "", $link);
+        $img_ex = explode('/', $element->src); 
+        $res    = self::getImages( $element->src, $img_ex[count($img_ex) - 1], self::createFolder( $folder ) );
+
+        $this->imageCount += ( $res ) ? 1 : 0 ;
+
+        echo $element->src . " <br /> " . PHP_EOL;
+      }
+   }
+   
+   //<// Triggers >>//
    public function Run(){
       
       foreach( $this->links as $link ) {
          $dom = str_get_html( self::Request($link) );
-         // Find all images
-        foreach($dom->find('img') as $element)
-         
-         //this is the image i want to download - thats why i wrote this script :D
-         if( preg_match('/(\d{3,})(x)(\d{3,}.jpg)/', $element->src) ){
 
-           $folder =  preg_replace('*http://beautiphic.com/product-category/*i', "", $link);
-           $img_ex = explode('/', $element->src); 
-           self::getImages( $element->src, $img_ex[count($img_ex) - 1], self::createFolder( $folder ) );
-           echo $element->src . '<br>';
+        $linkArray = parse_url($link);
+        $linkArray['scheme'] .= ( !empty($linkArray['scheme']) ) ? '://' : '';
+
+        if( empty($this->config['REPLACE']) AND $this->config['REPLACE'] != $link) { 
+          $this->config['REPLACE'] = $linkArray['scheme'].$linkArray['host'].'/';
+        } 
+
+         if( empty($this->config['IMAGE_MATCH']) OR $this->config['IMAGE_MATCH'] == NULL ){
+              $this->getImageWithoutPregMatched( $dom , $link );
          }
-        }
+         else{
+              $this->getImagePregMatched( $dom , $link );
+         }
+
+     }
+
+     echo " \n\n AM DONE! {$this->imageCount} Images Downloaded, thanks to imager! :) ";
 
    }
 
