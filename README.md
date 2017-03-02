@@ -19,8 +19,8 @@
     
 ## Optional/addtional setup ( the setup file is `setup.ini` )
 
-     <br /> - instead of downloading all images, you may want to specify a particullar image format to download,
-      <br />  eg: `IMAGE_MATCH = 260x260.jpg`     - this will download any image that contains 260x260 in the name
+      - instead of downloading all images, you may want to specify a particullar image format to download,
+        eg: `IMAGE_MATCH = 260x260.jpg`     - this will download any image that contains 260x260 in the name
      - ... 
       
      
