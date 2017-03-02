@@ -4,23 +4,23 @@
      
 ## How to use
   #1 - Run via browser
-    <br /> First Download the file. <a href="https://github.com/dongido001/Imager/archive/master.zip"> DOwnload Here </a>
-    # extract into your sever Document path.
-    # input the links to the images that you want to download from into `links.txt`
-    # Then visit the open the link on Browser - ( eg: localhost/imager/ )
-    # Check the folder where you extracted it to, you see a newly created folder, thats where your image is!
+    <br /> - First Download the file. <a href="https://github.com/dongido001/Imager/archive/master.zip"> DOwnload Here </a>
+    <br /> - extract into your sever Document path.
+    <br /> - input the links to the images that you want to download from into `links.txt`
+    <br /> - Then visit the open the link on Browser - ( eg: localhost/imager/ )
+    <br /> - Check the folder where you extracted it to, you see a newly created folder, thats where your image is!
     
   #2 - Run via command line.
-    - Extract the file into a folder.
-    - Open your command prompt, then CD into the folder where you extracted the file.
-    -  input the links to the images that you want to download the images from into `links.txt`
-    - Then run this command ` php index.php`
-    - then take a coffe and chill till its done.
+    <br /> - Extract the file into a folder.
+    <br /> - Open your command prompt, then CD into the folder where you extracted the file.
+    <br /> -  input the links to the images that you want to download the images from into `links.txt`
+    <br /> - Then run this command ` php index.php`
+    <br /> - then take a coffe and chill till its done.
     
 ## Optional/addtional setup ( the setup file is `setup.ini` )
 
-     - instead of downloading all images, you may want to specify a particullar image format to download,
-        eg: `IMAGE_MATCH = 260x260.jpg`     - this will download any image that contains 260x260 in the name
+     <br /> - instead of downloading all images, you may want to specify a particullar image format to download,
+      <br />  eg: `IMAGE_MATCH = 260x260.jpg`     - this will download any image that contains 260x260 in the name
      - ... 
       
      
