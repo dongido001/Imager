@@ -4,11 +4,11 @@
      
 ## How to use
   #1 - Run via browser
-    - First Download the file. <a href="https://github.com/dongido001/Imager/archive/master.zip"> DOwnload Here </a>
-    - extract into your sever Document path.
-    - input the links to the images that you want to download from into `links.txt`
-    - Then visit the open the link on Browser - ( eg: localhost/imager/ )
-    - Check the folder where you extracted it to, you see a newly created folder, thats where your image is!
+    First Download the file. <a href="https://github.com/dongido001/Imager/archive/master.zip"> DOwnload Here </a>
+    extract into your sever Document path.
+    input the links to the images that you want to download from into `links.txt`
+    Then visit the open the link on Browser - ( eg: localhost/imager/ )
+    Check the folder where you extracted it to, you see a newly created folder, thats where your image is!
     
   #2 - Run via command line.
     - Extract the file into a folder.
