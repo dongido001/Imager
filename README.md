@@ -1,6 +1,6 @@
 ## Imager
      You can call it anything, but we prefer calling it imager! because it does its JOB well.
-     Downloads all image from a given list of links...
+     it Downloads all images from a given list of links...
      
 ## How to use
   #1 - Run via browser
