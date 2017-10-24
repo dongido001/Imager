@@ -31,6 +31,6 @@
    - php file_get_content must be working.
    
  # Thanks for dropping by
-If you have any question, please send an mail to me - dongidomed@gmail.com, I will get back to you as soon as possible.
+If you have any question, please send an email to me - dongidomed@gmail.com, I will get back to you as soon as possible.
 
 You are free to contribute - pull, fork, one love open source!. Have a great day!
