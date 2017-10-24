@@ -6,15 +6,15 @@
   #1 - Run via browser
     <br /> - First, Download the file <a href="https://github.com/dongido001/Imager/archive/master.zip"> here </a>
     <br /> - Extract into your Sever document path.
-    <br /> - Input the links to the images that you want to download from into `links.txt`
-    <br /> - Visit the link on your browser - ( eg: localhost/imager/ )
-    <br /> - Check the folder where you extracted it to, you will see a newly created folder, that's where your image is!
+    <br /> - Input the links to the images that you want to download from into `links.txt`.
+    <br /> - Visit the link on your browser - ( eg: localhost/imager/ ).
+    <br /> - Check the folder where you extracted it to, you will see a newly created folder, that's where your image is!.
     
   #2 - Run via command line.
     <br /> - Extract the file into a folder.
     <br /> - Open your command prompt, then CD into the folder where you extracted the file.
-    <br /> - Input the links to the images that you want to download the images from into `links.txt`
-    <br /> - Run this command `php index.php`
+    <br /> - Input the links to the images that you want to download the images from into `links.txt`.
+    <br /> - Run this command `php index.php`.
     <br /> - Take a coffe and chill till its done.
     
 ## Optional/addtional setup ( the setup file is `setup.ini` )
@@ -26,8 +26,8 @@
      
     
 ### Notes / System Requirement
-   - You must have php installed
-   - You have curl installed
+   - You must have php installed.
+   - You have curl installed.
    - php file_get_content must be working.
    
  # Thanks for dropping by
