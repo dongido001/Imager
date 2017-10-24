@@ -38,7 +38,6 @@ class Imager extends simple_html_dom_node{
       $this->links  = self::getLinks();
       $this->config = parse_ini_file('setup.ini');
       $this->imageCount = 0;
-
    }
 
    /**
@@ -55,7 +54,6 @@ class Imager extends simple_html_dom_node{
       preg_match_all('#(www\.|https?://)?[a-z0-9]+\.[a-z0-9]{2,4}\S*#i', $urls, $r);
       
       return $r[0];
-
 	}
 
    /**
