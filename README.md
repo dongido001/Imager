@@ -4,9 +4,9 @@
   Imager helps you to download every images on a particular Url.
 
 ## Notes / System Requirement
-   - You must have php installed.
-   - You have curl installed.
-   - php file_get_content must be working.
+   - You must have PHP 5.4+ installed.
+   - You must have curl installed.
+   - php file_get_content must be enabled.
 
 ## Features
 
